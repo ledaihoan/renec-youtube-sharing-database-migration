@@ -16,11 +16,9 @@ export async function up(knex: Knex): Promise<void> {
   }
   await schemaBuilder.createTable(TABLE_NAME, (table) => {
     table.string('id').primary();
-    table.string('first_name').notNullable();
-    table.string('last_name').notNullable();
     table.string('email').notNullable();
     table.string('password').notNullable();
-    table.boolean('is_active').defaultTo(false);
+    table.boolean('is_active').defaultTo(true);
     table.unique(['email']);
 
     addTimestampColumns(table);
