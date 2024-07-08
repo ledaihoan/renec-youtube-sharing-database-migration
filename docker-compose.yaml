@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: public.ecr.aws/docker/library/postgres:16.3
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Renec2024
+      POSTGRES_DB: postgres
