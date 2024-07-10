@@ -18,14 +18,12 @@ export async function up(knex: Knex): Promise<void> {
   await schemaBuilder.createTable(TABLE_NAME, (table) => {
     table.string('id').primary();
     table.string('user_id').notNullable();
-    table.string('source_id').notNullable();
     table.string('url').notNullable();
     table.string('description').nullable();
     table.string('title').nullable();
     table.bigint('upvote_count').defaultTo(0);
-    table.bigint('downvote_count').defaultTo(0);
+    table.bigint('down_vote_count').defaultTo(0);
     table.unique(['url']);
-    table.index('source_id');
     table
       .foreign('user_id')
       .references('id')
